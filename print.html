@@ -1,0 +1,774 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ferveo</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix.html">Introduction</a></li><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="preliminaries.html"><strong aria-hidden="true">2.</strong> Preliminaries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assumptions.html"><strong aria-hidden="true">2.1.</strong> System model and assumptions</a></li><li class="chapter-item expanded "><a href="primitives.html"><strong aria-hidden="true">2.2.</strong> Cryptographic Primitives</a></li></ol></li><li class="chapter-item expanded "><a href="dkg.html"><strong aria-hidden="true">3.</strong> Publicly Verifiable Distributed Key Generation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dkginit.html"><strong aria-hidden="true">3.1.</strong> Initialization</a></li><li class="chapter-item expanded "><a href="pvss.html"><strong aria-hidden="true">3.2.</strong> Publicly Verifiable Secret Sharing</a></li></ol></li><li class="chapter-item expanded "><a href="tpke.html"><strong aria-hidden="true">4.</strong> Threshold Encryption Scheme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lagrange.html"><strong aria-hidden="true">4.1.</strong> Lagrange Interpolation</a></li><li class="chapter-item expanded "><a href="aggregation.html"><strong aria-hidden="true">4.2.</strong> Decryption Share Aggregation</a></li><li class="chapter-item expanded "><a href="tpke-concrete.html"><strong aria-hidden="true">4.3.</strong> Complete Concrete Scheme</a></li><li class="chapter-item expanded "><a href="performance.html"><strong aria-hidden="true">4.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="tx.html"><strong aria-hidden="true">5.</strong> Encrypted Transactions</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="sca.html"><strong aria-hidden="true">6.</strong> Side Channel Analysis</a></li><li class="chapter-item expanded "><a href="tss.html"><strong aria-hidden="true">7.</strong> Threshold Signature Scheme</a></li><li class="chapter-item expanded "><a href="keyrefresh.html"><strong aria-hidden="true">8.</strong> Key Refresh</a></li><li class="chapter-item expanded "><a href="enclave.html"><strong aria-hidden="true">9.</strong> Secure enclave computation</a></li><li class="chapter-item expanded "><a href="alternative.html"><strong aria-hidden="true">10.</strong> Alternative Schemes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pedersen.html"><strong aria-hidden="true">10.1.</strong> Pedersen DKG</a></li><li class="chapter-item expanded "><a href="fastkzg.html"><strong aria-hidden="true">10.2.</strong> Fast KZG DKG</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tpke-kzg-dkg.html"><strong aria-hidden="true">10.2.1.</strong> Threshold Encryption</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ferveo</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>Ferveo is a <strong>fast</strong> platform for distributed key generation and threshold decryption that can be integrated into Tendermint. Using Ferveo, a validator set can generate a distributed private key where each validator's share of the private key is weighted proportionally to their staked amount. The distributed key generation (DKG) is efficient enough to perform once per epoch and the underlying cryptographic schemes allow for real-time decryption of encrypted transactions. Ferveo allows the validator set to commit to encrypted transactions prior to threshold decryption, preventing public visibility of pending transactions and helping prevent transaction front-running.</p>
+<h1><a class="header" href="#overview" id="overview">Overview</a></h1>
+<h2><a class="header" href="#goals" id="goals">Goals</a></h2>
+<p>The cryptography in Ferveo should allow:</p>
+<ul>
+<li>Fast distributed key generation</li>
+<li>Fast threshold signature</li>
+<li>Fast threshold decryption </li>
+</ul>
+<p>with a set of weighted participants, where the relative weights of participants are determined by cryptoeconomics/staking values. Because relative weighting requires many more shares of the distributed key than other distributed key protocols, all primitives in Ferveo are highly optimized and run in nearly linear time. </p>
+<h2><a class="header" href="#synchronization" id="synchronization">Synchronization</a></h2>
+<p>Ferveo does not use an asynchronous DKG protocol. Instead, Ferveo runs on top of a synchronizing consensus layer such as Tendermint, though some messages may be gossiped peer-to-peer when synchrony is not required. The use of an underlying consensus layer allows better performance than using an asynchronous DKG because the DKG can use the <strong>consensus</strong> and <strong>censorship resistance</strong> features of the blockchain to save on computation and communication costs.</p>
+<h1><a class="header" href="#preliminaries" id="preliminaries">Preliminaries</a></h1>
+<p>Ferveo is intended to integrate into an existing blockchain framework such as Tendermint, and so the validator set is the natural participant set for Ferveo. Therefore, Ferveo assumes that all \(n\) validators have an associated Ed25519 public key identity and have staked some amount of token for the current epoch. Ferveo derives from the staking amounts an associated relative weight $\(w_i\). The total weight \(\sum_i w_i = W\) is a fixed parameter of the system, determined by a performance tradeoff (higher total weight allows more identities, higher resolution of weights, but larger computation and communication complexity). For performance reasons, \(W\) is ideally a power of two.</p>
+<h2><a class="header" href="#lower-bounds-on-w" id="lower-bounds-on-w">Lower bounds on \(W\)</a></h2>
+<p>In general, only performance concerns place a practical upper bound on how large \(W\) may be. The practical lower bound on \(W\) is determined by two factors:</p>
+<ul>
+<li>In order to ensure liveness of transaction decryption, ideally every subset of validators with network stake at least 2/3 should have at least 2/3 of key shares; that way an otherwise live network will not stop waiting for threshold decryption. However, because of rounding this is difficult to guarantee. Having a larger value of \(W\) with increased resolution of weights narrows the gap between the relative network stake of a validator subset and the relative key share of that subset.</li>
+<li>There should not be significant incentive for validators to strategically allocate stake among multiple identities to gain additional key shares through resolution or rounding, for example by creating many minimally staked validator identities. </li>
+</ul>
+<h1><a class="header" href="#system-model-and-assumptions" id="system-model-and-assumptions">System model and assumptions</a></h1>
+<p>The security model is intended to match the Tendermint security model. Among the validator set, safety and liveness is promised as long as less than 1/3 by weight are Byzantine (malicious, or otherwise not following the protocol) or faulty. When faulty validators crash and recover, they can resume the protocol, but liveness is only guaranteed if sufficient weight is honest and live. If proactive secret sharing is used to refresh a key during an epoch, then less than 1/3 weight nodes are Byzantine during a key phase.</p>
+<p>Synchronous VSS can achieve resiliance with threshold \(t\) when \(W \ge 2t+1\), implying \(t &lt; W/2\). The privacy threshold \(p\) is the value such that subsets of nodes of weight at least \(p+1\) can always recover the key or perform operations using the key, and subsets nodes of weight at most \(p\) are unable to recover the key or perform operations using the key. It must be \(p &lt; W - t\). The default values \(t = W/3 - 1\) and \(p = 2W/3\) are designed to match the resiliance of Tendermint.</p>
+<h2><a class="header" href="#liveness-guarantees" id="liveness-guarantees">Liveness guarantees</a></h2>
+<p>Ferveo depends on the liveness guarantees of the Tendermint protocol; if Tendermint fails to provide liveness, the DKG and threshold operations of Ferveo will also stop. Alternatively, whenever Tendermint can provide liveness, Ferveo's DKG and threshold operations will also be live. Therefore, any assumptions or improvements to Tendermint's liveness guarantees subsequently apply to Ferveo as well. Ferveo uses a Publicly Verifiable DKG specifically to match the liveness of the consensus layer.</p>
+<h1><a class="header" href="#cryptographic-primitives" id="cryptographic-primitives">Cryptographic Primitives</a></h1>
+<h2><a class="header" href="#curve" id="curve">Curve</a></h2>
+<p>Ferveo's distributed key generator and threshold cryptographic schemes rely on the use of a <strong>bilinear group</strong> where the Gap Diffie-Hellman assumption holds. </p>
+<p>The default curve used is BLS12-381. Optionally, BLS12-377 may also be implemented, which would allow easier SNARK verification of the DKG or other cryptographic primitives, or BLS12-461 at a higher security level. For documentation purposes, an abstract bilinear group is assumed.</p>
+<p>\(\mathbb{G}_1\) denotes the prime order subgroup of order \(r\) and \(\mathbb{F}_r\) is the scalar field of the curve with prime order \(r\). The pairing operation is \(e(P,Q) : \mathbb{G}_1 \times \mathbb{G}_2 \rightarrow \mathbb{G}_T\). The generator of \(\mathbb{G}_1\) and \(\mathbb{G}_2\) are denoted \(G_1\) and \(G_2\) respectively.</p>
+<p>Let \(\omega\) denote an \(W\)th root of unity in \(\mathbb{F}_r\). For highest performance, \(\mathbb{F}_r\) should be a highly 2-adic field, such as the scalar field of BLS12-381, to allow for FFT operations.</p>
+<p>Let \(G \in \mathbb{G}_1\) and \(H \in \mathbb{G}_2\) denote an independent generator in each group. </p>
+<h3><a class="header" href="#notation" id="notation">Notation</a></h3>
+<p>\(\mathbb{G}_1\) and \(\mathbb{G}_2\) are written as additive groups, where the repeated group operation is multiplication of a point \(P\) by a scalar \(s\) is written as \([s] P\). \(\mathbb{G_T}\) is written as a multiplicative group where the repeated group operation is exponentiation of a point \(g\) by a scalar \(s\) is written as \(g^s\).</p>
+<h2><a class="header" href="#fast-subgroup-checks" id="fast-subgroup-checks">Fast subgroup checks</a></h2>
+<p>All subgroup checks of membership in the subgroup \(\mathbb{G}_1\) and \(\mathbb{G}_2\) are performed as described in https://eprint.iacr.org/2019/814.pdf for performance reasons.</p>
+<h2><a class="header" href="#hashing" id="hashing">Hashing</a></h2>
+<p>Let \(\operatorname{H}_{\mathbb{G}}: {0,1}^* \rightarrow \mathbb{G}\) be the hash to curve function into the group \(\mathbb{G}\) as specified in RFC https://datatracker.ietf.org/doc/draft-irtf-cfrg-hash-to-curve/</p>
+<p>Let \(\operatorname{H}_{\mathbb{F}}: {0,1}^* \rightarrow \mathbb{F}\) be the hash to field function into the group \(\mathbb{F}\)</p>
+<p>Let \(\operatorname{H}_{\ell}: {0,1}^* \rightarrow {0,1}^\ell\) be a hash function into \(\ell\) bits. The default hash function is BLAKE2b.</p>
+<h2><a class="header" href="#symmetric-cryptography" id="symmetric-cryptography">Symmetric Cryptography</a></h2>
+<p>The authenticated encryption and decryption operations with key $k$, ciphertext $C$, and plaintext $M$ are denoted:</p>
+<p>\[C = \operatorname{encrypt}(k, M)\]
+\[M = \operatorname{decrypt}(k, C)\]</p>
+<p>Symmetric key encryption and decryption are provided by the ChaCha20Poly1305 (RFC8439) cipher, implemented as the chacha20poly1305 crate.</p>
+<h1><a class="header" href="#publicly-verifiable-distributed-key-generation" id="publicly-verifiable-distributed-key-generation">Publicly Verifiable Distributed Key Generation</a></h1>
+<p>Ferveo uses a Publicly Verifiable Distributed Key Generator</p>
+<p>The <strong>Aggregatable DKG</strong> scheme of Kobi Gurkan, Philipp Jovanovic, Mary Maller, Sarah Meiklejohn, Gilad Stern, and Alin Tomescu uses a similar approach to obtain an \( O(n \log n)\) time <em>asynchronous</em> DKG. Here, Ferveo assumes an synchronous communication model instead.</p>
+<p>The primary advantage of a Publicly Verifiable DKG is that no complaint or dispute round is necessary; every validator can check that the DKG succeeded correctly, even for validators that remain offline during the entire DKG. Such faulty validators can come online during any point during the epoch, and after syncing the missed blocks, becomes immediately able to recover its key shares. </p>
+<p>The primary disadvantage of a Publicly Verifiable DKG is that most schemes produce a private key shares consisting of <strong>group elements</strong> instead of scalar field elements, and thus are incompatible with many existing cryptographic primitives.  Ferveo works around this issue by using novel cryptographic primitives, still based on standard cryptographic assumptions, that are compatible with the private key shares generated</p>
+<p>Some Publicly Verifiable DKG schemes, such as Groth21, produce field private key shares. Such a scheme may be evaluated for use in Ferveo at a later date.</p>
+<h2><a class="header" href="#parameters" id="parameters">Parameters</a></h2>
+<p>In addition to the two independent generators \(G \in \mathbb{G}_1\) and \(H \in \mathbb{G}_2\), a third independent generator \(\hat{u}_1 \in \mathbb{G}_2\) is selected. </p>
+<h2><a class="header" href="#epoch-keys" id="epoch-keys">Epoch keys</a></h2>
+<p>Each validator \(i\) generates a <strong>epoch keypair</strong>: a private decryption key \(dk_i \in \mathbb{F}_r\), and a public encryption key \(ek_i\in \mathbb{G}_2 \). The encryption key is derived from the decryption key:</p>
+<p>\[ek_i = [dk_i] H \]</p>
+<p>Each validator is required to generate an epoch keypair at genesis, or upon joining the validator set. Each validator should generate and announce a new epoch public key once per epoch, but in the event that a validator does not announce a new epoch public key during an epoch, the last announced epoch public key should be used in the DKG. For this reason, each validator should persist their latest epoch private key on disk.</p>
+<h2><a class="header" href="#publicly-verifiable-secret-sharing" id="publicly-verifiable-secret-sharing">Publicly Verifiable Secret Sharing</a></h2>
+<p>The validators should each generate exactly one PVSS instance as a dealer, and include that instance as a VoteExtension to a specially designated DKG block. The next block proposer is responsible for verifying and aggregating at least 2/3 by weight of PVSS instances, and including the aggregation in the next block.</p>
+<p>For performance reasons, the aggregating validator may sort the PVSS instances by decreasing validator weight, and only include sufficient instances to reach the necessary 2/3 total weight. PVSS instances above the 2/3 weight threshold are ignored.</p>
+<p>In case a dealer's PVSS instance does not verify as correct, that instance is discarded (and penalties may be imposed).</p>
+<h2><a class="header" href="#output" id="output">Output</a></h2>
+<p>Once 2/3 by weight of correct PVSS instances have been aggregated into a single PVSS instance, the commitment to the constant term of the aggregated PVSS instance, \(F_0\), is the public key output \(Y\) from the PVDKG, and each validators aggregated private key shares \(Z_{i,\omega_j} \) are the private key shares associated with \(Y\)</p>
+<h1><a class="header" href="#initialization" id="initialization">Initialization</a></h1>
+<p>Each DKG session begins by choosing a unique integer session id \(\tau\). This can begin at 0 and then be incremented from the previous \(\tau\). When strongly integrated into Tendermint, the epoch number can be used as \(tau\), with the note that additional DKG sessions within an epoch (for example, to do key refresh) must use a unique \(\tau\).</p>
+<h1><a class="header" href="#share-partitioning" id="share-partitioning">Share partitioning</a></h1>
+<p>In general the validator's staking weights will total much greater than \(W\), the number of shares issued in the DKG; therefore, the staking weights will have to be scaled and rounded.</p>
+<p>The algorithm to assign relative weights achieves exactly the desired total weight. Initially, every participant weight is scaled and rounded down to the nearest integer. The amount of assigned weight is greater than the total desired weight minus the number of participants, so weight at most 1 can be added to each participant in order of staked weight, until the total desired weight is reached. After all total weight is assigned, each participant will have relative weight at most 1 away from their fractional scaled weight.</p>
+<p>Using the consensus layer, all validators should agree on a canonical ordering of \((pk_i, w_i)\)$ where \(pk_i\) is the public key of the \(i\)th validator and \(w_i\) is number of shares belonging to node \(i\). The value \(i\) is the integer id of the node with public key \(pk_i\).</p>
+<p>Let \(\Psi_{i} = { a, a+1, \ldots, a+w_i }$\) be the disjoint partition described above such that \(\cup_i \Psi_{i} =  {0,1, \ldots, W-1}\), and \(\Omega_{i} = { \omega^k \ mid k \in \Psi_{i} }\). \(\Psi_i\) are the <strong>share indexes</strong> assigned to the \(i\)th validator and \(\Omega_i\) is the <strong>share domain</strong> of the \(i\)th validator.</p>
+<h1><a class="header" href="#publicly-verifiable-secret-sharing-1" id="publicly-verifiable-secret-sharing-1">Publicly Verifiable Secret Sharing</a></h1>
+<p>The PVSS scheme used is a modified Scrape PVSS. </p>
+<h2><a class="header" href="#dealers-role" id="dealers-role">Dealer's role</a></h2>
+<ol>
+<li>The dealer chooses a uniformly random polynomial \(f(x) = \sum^p_i a_i x^i \) of degree \(t\).</li>
+<li>Let \(F_0, \ldots, F_p \leftarrow [a_0] G_1, \ldots, [a_t] G_1 \)</li>
+<li>Let \(\hat{u}_2 \rightarrow [a_0] \hat{u_1} \)</li>
+<li>For each validator \(i\), for each \(\omega_j \in \Omega_i\), encrypt the evaluation \( \hat{Y}_{i, \omega_j} \leftarrow [f(\omega_j)] ek_i  \)</li>
+<li>Post the signed message \(\tau, (F_0, \ldots, F_t), \hat{u}<em>2, (\hat{Y}</em>{i,\omega_j})\) to the blockchain</li>
+</ol>
+<h2><a class="header" href="#public-verification" id="public-verification">Public verification</a></h2>
+<ol>
+<li>Check \(e(F_0, \hat{u}_1)=  e(G_1, \hat{u_2})\)</li>
+<li>Compute by FFT \(A_1, \ldots, A_W \leftarrow [f(\omega_0)]G_1, \ldots, [f(\omega_W)]G_1 \)</li>
+<li>Partition \(A_1, \ldots, A_W\) into \(A_{i,\omega_j} \) for validator \(i\)'s shares \(\omega_j\)</li>
+<li>For each encrypted share \(\hat{Y}<em>{i,\omega_i} \), check \(e(G_1, \hat{Y}</em>{i,\omega_j}) = e(A_{i,\omega_j}, ek_i) \)</li>
+</ol>
+<h2><a class="header" href="#aggregation" id="aggregation">Aggregation</a></h2>
+<p>Two PVSS instances \( ({F_j}, \hat{u}<em>2, \hat{Y}</em>{i,\omega_j}) \) may be aggregated into a single PVSS instance by adding elementwise each of the corresponding group elements.</p>
+<h2><a class="header" href="#validator-decryption-of-private-key-shares" id="validator-decryption-of-private-key-shares">Validator decryption of private key shares</a></h2>
+<p>A validator \(i\) recovers their private key shares \(Z_{i,\omega_j}\) from the shares encrypted to their public encryption key \(ek_i\):</p>
+<p>\[Z_{i, \omega_j} = [dk_i^{-1}] \hat{Y}_{i, \omega_j} \]</p>
+<h2><a class="header" href="#public-aggregation" id="public-aggregation">Public Aggregation</a></h2>
+<p>Multiple PVSS instances can be aggregated into one by a single validator, speeding up verification time. The aggregation and verification are similar to the Aggregatable DKG paper.</p>
+<h2><a class="header" href="#consensus" id="consensus">Consensus</a></h2>
+<p>It is critical that all validators agree on which PVSS instances are used to create the final key; in particular, this is exactly what makes Ferveo depend on a synchronous consensus protocol like Tendermint. Therefore, the validators must all verify the PVSS instances and agree on the set of valid PVSS instances; or in the case where a validator has aggregated all PVSS instances, the validator set must agree on a valid aggregation of PVSS instances.</p>
+<p>However, although full nodes can certainly perform the verification of a PVSS instance or aggregation, full nodes do not need to verify either the PVSS instances or the aggregation. </p>
+<h1><a class="header" href="#threshold-encryption-scheme" id="threshold-encryption-scheme">Threshold Encryption Scheme</a></h1>
+<p>Based on <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.119.1717&amp;rep=rep1&amp;type=pdf">A Simple and Efficient Threshold Cryptosystem from the Gap Diffie-Hellman Group</a></p>
+<h2><a class="header" href="#overview-1" id="overview-1">Overview</a></h2>
+<p>The threshold encryption scheme allows the encrypter to derive a <strong>shared secret</strong> \(s\) from the threshold public key \(Y\), such that sufficient threshold of validators holding private key shares \(Z_i\) associated with \(Y\) can also derive the shared secret. Both encrypter and decrypter use the shared secret to derive a symmetric key for a key-committing AEAD via HKDF.</p>
+<h3><a class="header" href="#to-encrypt" id="to-encrypt">To encrypt</a></h3>
+<ol>
+<li>Let \(r\) be a random scalar</li>
+<li>Let \(s = e([r] Y, H)\)</li>
+<li>Let \(U = [r] G\)</li>
+<li>Let \(W = [r] H_{\mathbb{G}_2} (U)\)</li>
+<li>Let \(k = HKDF(s)\)</li>
+</ol>
+<p>The public key portion of the ciphertext is \((U,W)\) and the derived shared secret is \(s\).</p>
+<h3><a class="header" href="#to-validate-ciphertext-for-ind-cca2-security" id="to-validate-ciphertext-for-ind-cca2-security">To Validate Ciphertext (for IND-CCA2 security)</a></h3>
+<p>Check that \(e(U, H_{\mathbb{G}_2} (U))= e(G, W)\) for ciphertext validity.</p>
+<h3><a class="header" href="#to-decrypt" id="to-decrypt">To Decrypt</a></h3>
+<ol>
+<li>Check ciphertext validity.</li>
+<li>Let \(s = e(U, Z)\)</li>
+</ol>
+<h3><a class="header" href="#threshold-decryption-simple-method" id="threshold-decryption-simple-method">Threshold Decryption (simple method)</a></h3>
+<ol>
+<li>Check ciphertext validity.</li>
+<li>Each decryption share is \(C_i = e(U, Z_i)\).</li>
+<li>To combine decryption shares, s = \(\prod C_i^{\lambda_i(0)}\) where \(\lambda_i(0)\) is the lagrange coefficient over the appropriate size domain.</li>
+</ol>
+<h3><a class="header" href="#threshold-decryption-fast-method" id="threshold-decryption-fast-method">Threshold Decryption (fast method)</a></h3>
+<p>Thanks to Kobi Gurkan for this approach.</p>
+<p>Each validator generates a random scalar \(b\) and blinds their private key shares \([b] Z_{i, \omega_j}\). The blinded private key shares are publicly distributed, either by gossip or by posting to the blockchain. </p>
+<ol>
+<li>Check ciphertext validity</li>
+<li>The validator's decryption share is \(D_i = [b^{-1}] U\)</li>
+</ol>
+<p>Note that to create a decryption share takes only one \(\mathbb{G}_1\) multiplication, and not one pairing as in the simple method.</p>
+<p>To combine decryption shares, an aggregator computes for each decryption share \(D_i = [b^{-1}] U\):</p>
+<p>\[ S_i = e( D_i, [\sum_{\omega_j \in \Omega_i} \lambda_{\omega_j}(0)] [b] Z_{i,\omega_j}  ) \]</p>
+<p>The shared secret is then \(s = \prod S_i\).</p>
+<h4><a class="header" href="#public-verification-of-decryption-shares" id="public-verification-of-decryption-shares">Public verification of decryption shares</a></h4>
+<p>The decryption shares can be made verifiable if each validator posts a <em>blinded public key</em> \(P_i =  [b] H\). Validity of a decryption share \(D_i\) is then checked by:</p>
+<p>\[ e(D_i, P_i) = e(U, H) \]</p>
+<h3><a class="header" href="#proof-sketch" id="proof-sketch">Proof sketch</a></h3>
+<p>The non-threshold version of the scheme is IND-CCA2 secure. </p>
+<p>Suppose there is an adversary that wins the IND-CCA2 game. Then on input \((G, [a]G, [b]G, H)\), there exists an adversary that computes  \(e(G,H)^{ab}\).</p>
+<h4><a class="header" href="#rekeyability" id="rekeyability">Rekeyability</a></h4>
+<p>The shared secret \(s\) can be rekeyed with respect to the secret key \(Z_1\) to a new secret key \(\hat{Z} = [\alpha] Z_1 + Z_2\), as the new shared secret \(\hat{s} = s^{\alpha} e(U, Z_2) = e(U, [\alpha] Z_2)e(U, Z_2) = e(U, [\alpha]Z_1 + Z_2)\).</p>
+<p>The shared secret \(s\) can be rekeyed with respect to the public key \(Y_1\) to a new public key \(\hat{Y} = [\alpha] Y_1 + Y_2\) as the new shared secret \(\hat{s} = s^{\alpha} e([r] Y_2, H) = e([r\alpha] Y_1, H)e([r]Y_2, H) = e([r]([\alpha]Y_1 + Y_2), H)\).</p>
+<h1><a class="header" href="#lagrange-interpolation" id="lagrange-interpolation">Lagrange Interpolation</a></h1>
+<p>In the threshold decryption procedure, many \(\mathbb_{G}<em>2 \) points must be multiplied by Lagrange coefficients \(\mathcal{L}^T</em>{i} (0)\) before being summed, to interpolate the shared secret committed inside the \(\mathbb_{G}_2\) points, where \(T\) is the sufficiently large threshold subset of evaluation points.</p>
+<p>To compute this value \(\mathcal{L}^T_{i} (0)\), note the equality:</p>
+<p>\[\mathcal{L}^T_{i} (0) = \frac{\prod_{j\in T} (-\omega_j)}{-\omega_i \lambda_i} \]</p>
+<p>where \(\frac{1}{\lambda_i}\) is the inverse Lagrange coefficient as computed using the Subproduct Domain technique.</p>
+<h2><a class="header" href="#caching-of-lagrange-interpolation-results" id="caching-of-lagrange-interpolation-results">Caching of Lagrange Interpolation results</a></h2>
+<p>Since the block signer set may, in the worst case, change for every block, and may be as small as 2/3 of the total validator set, it is possible that the Lagrange coefficients are distinct for every new block. Therefore, the protocol must accommodate the computation load required to recompute the Lagrange coefficients, and all operations that are data-dependent on the coefficients, which is significant. </p>
+<p>However, in the expected case, validators are penalized for insufficient liveness and the block signer set should rarely deviate from block to block. Therefore it makes sense to aggressively cache the Lagrange coefficients of the longest live 2/3 subset of validators, and other data. In particular the <code>G2Prepared</code> form of the blinded private key shares multiplied by the Lagrange coefficients is quite expensive to compute and can be cached in case the block signer set does not change significantly, potentially saving a substantial amount of compute time.</p>
+<h1><a class="header" href="#decryption-share-aggregation" id="decryption-share-aggregation">Decryption Share Aggregation</a></h1>
+<p>In order to provide guarantees that every valid transaction is executed in the order it appears in a finalized block, it is necessary that validators cannot censor valid transactions by pretending that the transaction was invalidly constructed. In the case of a valid transaction, the resulting symmetric key is sufficient to prove correct decryption; however, in
+case of invalid transactions, the resulting symmetric key may not correctly decrypt the payload. Therefore, the decryption shares must be retained to allow verification that the decryption procedure was followed correctly and that all transactions not processed were actually invalid.</p>
+<p>Since decryption shares are rather large in size, it is possible to consume a large amount of storage space by submitting many invalid transactions. This waste of storage space can be mitigated by use of decryption share aggregation, where many valid decryption shares for many transactions can be aggregated together into one set of decryption shares. The resulting shared secrets cannot be obtained directly from the aggregated decryption shares, but an aggregated shared secret can be obtained, and compared against stored shared secrets. Therefore, the storage cost of decryption shares across many invalid transactions is amortized and the incremental cost of an invalid transaction in a block is only the bytes of the shared secret (one \(\mathbb{G}_T\) element).</p>
+<h2><a class="header" href="#to-aggregate-decryption-shares-from-many-transactions" id="to-aggregate-decryption-shares-from-many-transactions">To aggregate decryption shares from many transactions</a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input 2/3 weight of potential decryption shares for each ciphertext \({D_{i,j}}\) sharing the same validator set, if decryption shares are only needed to check the validity of the decryption process, the decryption shares of many ciphertexts can be aggregated into one decryption share set. </p>
+<p>For each ciphertext \(j\) compute the scalar coefficient:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>which can be used to compute the aggregated decryption share for validator \(i\):</p>
+<p>\[\hat{D}<em>i = \sum_j \rho_j D</em>{i,j} \]</p>
+<h2><a class="header" href="#to-verify-the-correctness-of-an-aggregation-against-aggregated-ciphertexts" id="to-verify-the-correctness-of-an-aggregation-against-aggregated-ciphertexts">To verify the correctness of an aggregation against aggregated ciphertexts</a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\) and an aggregated decryption share set for those ciphertexts, the validity of the aggregation can be checked by computing the publicly known coefficients:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>and checking the pairing equation:</p>
+<p>\[ \prod_i e(\sum_{j} [\rho_i] \hat{D}<em>{i}, P_i) = e([\sum</em>{i,j} \rho_i] U_j, H) \]</p>
+<h2><a class="header" href="#proof-sketch-1" id="proof-sketch-1">Proof sketch</a></h2>
+<p>(TODO: turn into an actual proof)</p>
+<p>The aggregation does not reduce security due to the Forking Lemma. Assume each validator provides an aggregated decryption share \(D_i\) that passes the aggregated check \(e(D_i, P_i) = e( [a] U_1 + [b] U_2, H)\) where \(a,b\) are from \(H(U_1,U_2)\). Assume an adversary can create a fake \(D_i\), then rewind the adversary and replay with new \(a',b'\) to get a new forgery \(D_i'\). Then \([X,Y] = [[a,b],[a',b']]^{-1} * [D_i, D_i']\) should satisfy \(e(X, P_i) = e( U_1, H)\) and \(e(Y, P_i) = e(U_2, H)\) so X,Y are valid decryption shares for each ciphertext. Therefore every adversary that passes the aggregated check passes the original check.</p>
+<h1><a class="header" href="#complete-concrete-scheme" id="complete-concrete-scheme">Complete Concrete Scheme</a></h1>
+<p>There are optimizations that can be done to increase decryption throughput when decrypting many transactions within a block. For completeness, the full concrete scheme is described here.</p>
+<h2><a class="header" href="#summary" id="summary">Summary</a></h2>
+<p>The DKG and TPKE schemes support the following key operations:</p>
+<ul>
+<li><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></li>
+<li><code>DKG.PartitionDomain({ek_i, s_i}) -&gt; {(ek_i, Omega_i)} </code></li>
+<li><code>DKG.GeneratePVSS(tau, total_weight, {(s_i, ek_i)})</code></li>
+<li><code>DKG.VerifyPVSS(tau, PVSS) -&gt; bool</code></li>
+<li><code>DKG.AggregatePVSS({PVSS_i}) -&gt; PVSS</code></li>
+<li><code>DKG.VerifyAggregatedPVSS({PVSS_i}, PVSS) -&gt; bool</code></li>
+</ul>
+<p>And supports the following ciphertext operations:</p>
+<ul>
+<li><code>TPKE.Encrypt(Y, aad)</code> inputs a public threshold key \(Y\) and outputs a random ciphertext \((U,W)\) encrypted to that public key</li>
+<li><code>TPKE.CiphertextValidity(U,W)</code> tests if $\((U,W)\) is a valid ciphertext</li>
+<li><code>TPKE.CreateDecryptionShare(dk_j, U_i,W_i) -&gt; D_{i,j}</code></li>
+<li><code>TPKE.VerifyDecryptionShares(ek_i, { U_j }, { D_{i,j} }) -&gt; bool</code></li>
+<li><code>TPKE.BatchVerifyDecryptionShares({ek_i}, { U_j }, { D_{i,j} }) -&gt; bool</code></li>
+<li><code>TPKE.CombineDecryptionShares( {U_j}, {D_{i,j}) -&gt; {S_j}</code> combines decryption shares </li>
+<li><code>TPKE.VerifyCombination</code> verifies a combination for many </li>
+<li><code>TPKE.DeriveSymmetricKey(S_j) -&gt; k_j</code></li>
+</ul>
+<h2><a class="header" href="#dkggenerateepochkeypair---ek-dk" id="dkggenerateepochkeypair---ek-dk"><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></a></h2>
+<p>Choose a uniformly random scalar \(dk \in \mathbb{F}_r \) and compute \( ek = [dk] H \)</p>
+<h2><a class="header" href="#dkgpartitiondomainek_i-s_i---ek_i-omega_i" id="dkgpartitiondomainek_i-s_i---ek_i-omega_i"><code>DKG.PartitionDomain({ek_i, s_i}) -&gt; {(ek_i, Omega_i)}</code></a></h2>
+<h2><a class="header" href="#dkggeneratepvsstau-total_weight-ek_i-omega_i---pvss" id="dkggeneratepvsstau-total_weight-ek_i-omega_i---pvss"><code>DKG.GeneratePVSS(tau, total_weight, {(ek_i, Omega_i)}) -&gt; PVSS</code></a></h2>
+<ol>
+<li>Choose a uniformly random polynomial \(f(x) = \sum^p_i a_i x^i \) of degree \(t\).</li>
+<li>Let \(F_0, \ldots, F_t \leftarrow = [a_0] G, \ldots, [a_t] G \)</li>
+<li>For each validator \(i\), for each \(\omega_j \in \Omega_i\), encrypt the evaluation \( Z_{i, \omega_j} \leftarrow [f(\omega_j)] ek_i  \)</li>
+<li>\(\sigma = [a_0] H_{\mathbb{G}_2}(tau,F_0) \)</li>
+</ol>
+<p>Output PVSS = \( ((F_0, sigma), (F_1, ldots, F_t), {Z_{i,\omega_j}}) \)</p>
+<h2><a class="header" href="#dkgverifypvsstau-pvss---bool" id="dkgverifypvsstau-pvss---bool"><code>DKG.VerifyPVSS(tau, PVSS) -&gt; bool</code></a></h2>
+<ol start="0">
+<li>Decode \( ((F_0, sigma), (F_1, ldots, F_t), {Z_{i,\omega_j}}) \leftarrow \) PVSS</li>
+<li>Compute by FFT \(A_1, \ldots, A_W \leftarrow \operatorname{FFT}(F_0, \ldots, F_t) \)</li>
+<li>Compute \(W\) random scalars \(\alpha_i \)</li>
+<li>Check \(\mathcal{O} = \prod_i e(-G_1, Z_{i,\omega_j})e(A_{i,\omega_j}, ek_i) \)</li>
+</ol>
+<h2><a class="header" href="#dkgaggregatepvsspvss_i---pvss" id="dkgaggregatepvsspvss_i---pvss"><code>DKG.AggregatePVSS({PVSS_i}) -&gt; PVSS</code></a></h2>
+<h2><a class="header" href="#dkgverifyaggregatedpvsspvss_i-pvss---bool" id="dkgverifyaggregatedpvsspvss_i-pvss---bool"><code>DKG.VerifyAggregatedPVSS({PVSS_i}, PVSS) -&gt; bool</code></a></h2>
+<h2><a class="header" href="#lagrange-coefficients" id="lagrange-coefficients">Lagrange Coefficients</a></h2>
+<p>Given a validator subset \({i}\), the Lagrange coefficients \(\lambda_{\omega}(0)\) for the domain \(\cup \Omega_i \) can be computed efficiently using the Subproduct Domain technique.</p>
+<p>Total cost: \( O(p \log p) \) </p>
+<h2><a class="header" href="#dkggenerateepochkeypair---ek-dk-1" id="dkggenerateepochkeypair---ek-dk-1"><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></a></h2>
+<p>The validator generates a random scalar \(dk \in \mathbb{F}_r \) and computes the public key \( ek = [dk] H \)</p>
+<h2><a class="header" href="#tpkeencrypty-aad---uw" id="tpkeencrypty-aad---uw"><code>TPKE.Encrypt(Y, aad) -&gt; (U,W)</code></a></h2>
+<p><code>TPKE.Encrypt(Y, aad)</code> creates a new, random ciphertext \((U,W)\) encrypted to the public key \(Y\), and a corresponding ephemeral shared secret \(S\) such that the private key associated with \(Y\) can efficiently compute \(S\) from the ciphertext \((U,W)\). Additional authenticated data <code>aad</code> may be attached to the ciphertext.</p>
+<p>The ephemeral shared secret \(S\) can be used to derive a shared symmetric encryption key.</p>
+<ol>
+<li>Let \(r\) be a uniformly random scalar.</li>
+<li>Let \(S = e([r] Y, H)\)</li>
+<li>Let \(U = [r] G\)</li>
+<li>Let \(W = [r] H_{\mathbb{G}_2} (U, aad)\)</li>
+</ol>
+<p>Then \((U,W)\) is the ciphertext and \(S\) is the ephemeral shared secret. </p>
+<h2><a class="header" href="#tpkeciphertextvalidityuw---bool" id="tpkeciphertextvalidityuw---bool"><code>TPKE.CiphertextValidity(U,W) -&gt; bool</code></a></h2>
+<p>To provide chosen ciphertext security, ciphertext validity must be checked for each ciphertext \((U,W)\) separately. The ciphertext can be checked by:</p>
+<p>\[e(U, H_{\mathbb{G}_2} (U)) = e(G, W)\]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) and 1 \(\mathbb{G}_2\) deserialize per ciphertext</li>
+<li>1 product of pairings</li>
+</ul>
+<h2><a class="header" href="#tpkebatchciphertextvalidity-uw----bool" id="tpkebatchciphertextvalidity-uw----bool"><code>TPKE.BatchCiphertextValidity( {U,W} ) -&gt; bool</code></a></h2>
+<p>Once a block proposer has verified ciphertext validity, the entire block can be optimistically verified:</p>
+<p>\[\prod_j e(\alpha_j U_j, H_{\mathbb{G}_2} (U_j)) = e(G, \sum_j \alpha_j W_j) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) and 1 \(\mathbb{G}_2\) deserialize per ciphertext</li>
+<li>1 product of pairings</li>
+</ul>
+<h2><a class="header" href="#tpkecreatedecryptionsharedk_i-u_j---d_ij" id="tpkecreatedecryptionsharedk_i-u_j---d_ij"><code>TPKE.CreateDecryptionShare(dk_i, U_j) -&gt; D_{i,j}</code></a></h2>
+<p>\[D_{i,j} = [dk_i^{-1}] U_j\]</p>
+<h2><a class="header" href="#tpkeverifydecryptionsharesek_i--u_j---d_ij----bool" id="tpkeverifydecryptionsharesek_i--u_j---d_ij----bool"><code>TPKE.VerifyDecryptionShares(ek_i, { U_j }, { D_{i,j} }) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input potential decryption shares for each ciphertext \({D_{i,j}}\) from a single validator \(i\) with epoch public key \(ek_i\), the validity of those shares can be checked by:</p>
+<p>\[D_{i,j} = [dk_i^{-1}] U_j\]</p>
+<p>\[ e(\sum_j [\alpha_j] D_{i,j}, ek_i) = e(\sum_j [\alpha_j] U_j, H) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) deserialize per validator per ciphertext</li>
+<li>2 pairings per validator</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_2\) multiply per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkebatchverifydecryptionsharesek_i--u_j---d_ij----bool" id="tpkebatchverifydecryptionsharesek_i--u_j---d_ij----bool"><code>TPKE.BatchVerifyDecryptionShares({ek_i}, { U_j }, { D_{i,j} }) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input 2/3 weight of potential decryption shares for each ciphertext \({D_{i,j}}\), corresponding to validator set \({i}\) with epoch public keys \(ek_i\), the validity of those shares can be checked:</p>
+<p>\[ \prod_i e(\sum_{j} [\alpha_{i,j}] D_{i,j}, ek_i) = e([\sum_{i,j} \alpha_{i,j}] U_j, H) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 G1 deserialize per validator</li>
+<li>V+1 pairings</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_2\) multiply, per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkeaggregatedecryptionshares-u_j-d_ij----hatd_i" id="tpkeaggregatedecryptionshares-u_j-d_ij----hatd_i"><code>TPKE.AggregateDecryptionShares( {U_j}, {D_{i,j}} ) -&gt; {\hat{D}_i} </code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input 2/3 weight of potential decryption shares for each ciphertext \({D_{i,j}}\) sharing the same validator set, if decryption shares are only needed to check the validity of the decryption process, the decryption shares of many ciphertexts can be aggregated into one decryption share set. </p>
+<p>For each ciphertext \(j\) compute the scalar coefficient:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>which can be used to compute the aggregated decryption share for validator \(i\):</p>
+<p>\[\hat{D}<em>i = \sum_j \rho_j D</em>{i,j} \]</p>
+<h2><a class="header" href="#tpkeverifyaggregateddecryptionsharesu_j-hatd_i---bool" id="tpkeverifyaggregateddecryptionsharesu_j-hatd_i---bool"><code>TPKE.VerifyAggregatedDecryptionShares({U_j}, {\hat{D}_i}) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\) and an aggregated decryption share set for those ciphertexts, the validity of the aggregation can be checked by computing the publicly known coefficients:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>and checking the pairing equation:</p>
+<p>\[ \prod_i e(\sum_{j} [\rho_i] \hat{D}<em>{i}, P_i) = e([\sum</em>{i,j} \rho_i] U_j, H) \]</p>
+<h2><a class="header" href="#tpkecombinedecryptionshares-u_j-d_ij---s_j" id="tpkecombinedecryptionshares-u_j-d_ij---s_j"><code>TPKE.CombineDecryptionShares( {U_j}, {D_{i,j}) -&gt; {S_j}</code></a></h2>
+<p>For a given ciphertext \((U_j,W_j)\), on input 2/3 weight of valid decryption shares \({D_{i,j}}\) as checked by ``TPKE.VerifyDecryptionShares`, corresponding to validator set \({i}\).</p>
+<p>Then a partial combined share \(S_{i,j}\) for that ciphertext can be computed with one pairing:</p>
+<p>\[ S_{i,j} = e( D_{i,j}, [\sum_{\omega_j \in \Omega_i} \lambda_{\omega_j}(0)] Z_{i,\omega_j}  ) \]</p>
+<p>and combined to get the final combined share \(S_j = \prod_i S_{i,j}\).</p>
+<p>Total cost: </p>
+<ul>
+<li>1 pairing and 1 \(\mathbb{G}_T\) multiply per validator </li>
+</ul>
+<h2><a class="header" href="#tpkeverifyaggregatedcombination" id="tpkeverifyaggregatedcombination"><code>TPKE.VerifyAggregatedCombination</code></a></h2>
+<p>Verifying \(\prod_j S_j\) for many ciphertexts with the same decrypting validator set can be done faster than generating each \(S_j\) separately. For ciphertexts \((U_j, W_j)\) with valid aggregated decryption shares \( \hat{D}_{i}\) (checked by <code>TPKE.VerifyAggregatedDecryptionShares</code>), combined shares \({S_j}\) and random scalars \(\rho_j\), for each validator \(i\), an aggregated decryption share: </p>
+<p>\[\hat{D}<em>i = \sum_j \rho_j D</em>{i,j} \]</p>
+<p>computed using unknown \(D_{i,j}\) but with the publicly known coefficients:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>can be used to compute an aggregated partial combined share \(\hat{S}_i \):</p>
+<p>\[ \hat{S}<em>i = e( \hat{D}<em>i, [\sum</em>{\omega_j \in \Omega_i} \lambda</em>{\omega_j}(0)] Z_{i,\omega_j}  ) \]</p>
+<p>and combined to get an aggregated final combined share \( \hat{S} = \prod_i \hat{S}_i\) which can be checked against the computed \({S_j}\) by: </p>
+<p>\[ \hat{S} = \sum_j \alpha_j S_j \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 pairing and 1 \(\mathbb{G}_T\) multiply per validator</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_T\) multiply per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkederivesymmetrickeys_j---k_j" id="tpkederivesymmetrickeys_j---k_j"><code>TPKE.DeriveSymmetricKey(S_j) -&gt; k_j</code></a></h2>
+<p>Use HKDF(S_j)</p>
+<p>Therefore the total work done per block, in the optimistic case, if there are T transactions and V validators, by role:</p>
+<ul>
+<li>
+<p>Block proposer:</p>
+<ul>
+<li>ciphertext validity check: 2T pairings</li>
+<li>combine decryption shares: T*V pairings plus T multiplies in G_t </li>
+</ul>
+</li>
+<li>
+<p>Block signer: </p>
+<ul>
+<li>ciphertext validity check: T+1 pairings plus T multiplies in each G_1 and G_2</li>
+<li>create decryption shares: T multiplies of G_1, T multiplies in G_t</li>
+<li>verify decryption shares: V+1pairings plus 2T multiplies in G_1</li>
+<li>verify combination: V pairings plus V+T multiplies in G_t</li>
+</ul>
+</li>
+<li>
+<p>Full node: </p>
+<ul>
+<li>verify decryption shares: V+1 pairings plus 2T multiplies in G_1</li>
+<li>verify combination: V pairings plus V+T multiplies in G_t </li>
+</ul>
+</li>
+<li>
+<p>Long term storage per block (this does assume ephemeral data is pruned):</p>
+<ul>
+<li>aggregated decryption shares (of invalid tx):  V elements of G_1 ( 48*V bytes)</li>
+<li>combined shares (of invalid tx): T elements of G_t (400*T bytes)</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#encrypted-transactions" id="encrypted-transactions">Encrypted Transactions</a></h1>
+<p>When Ferveo is integrated into Tendermint, the validators should run the DKG once per epoch and the generated public key \(Y\) broadcast to all nodes in the network.</p>
+<p>Transactions sent to the mempool should be encrypted to this public key, and block proposers select encrypted transactions from the mempool and commit to them in to block proposals. Therefore, the execution and ordering of transactions is determined before they are decrypted and revealed.</p>
+<p>An encrypted transaction consists of:</p>
+<ul>
+<li>The public key ciphertext \(U, W\) associated with this transaction</li>
+<li>The key-committing AEAD encrypted payload of the transaction, with symmetric key derived from \(U, W\)</li>
+<li>Transaction fee payment details</li>
+<li>The epoch number that the tx is being encrypted to. </li>
+</ul>
+<p>The inclusion of fee payment outside of the payload ensures that the network is not saturated with invalid transactions.</p>
+<p>The encryption method is then ran roughly as:</p>
+<ol>
+<li>Sample private key <code>k</code>.</li>
+<li>Compute Ciphertext as <code>CT = KC_AEAD.Encrypt(key=Hash(k * threshold_pubkey), msg={state machine tx}, additional_data={empty})</code></li>
+<li>Run Threshold Encryption as <code>TE.Encrypt(private_key=k, threshold_pubkey, ciphertext=ct, additional_data={tx fee details, epoch number})</code></li>
+</ol>
+<h2><a class="header" href="#block-proposal" id="block-proposal">Block proposal</a></h2>
+<p>A block proposal, therefore, consists of:</p>
+<ol>
+<li>Validator-selected encrypted transactions (likely ordered by fee)</li>
+<li>Decryption data for all transactions in the previous block</li>
+</ol>
+<p>Availability of decryption shares for those transactions is guaranteed by new block finalization rules, and it is the block proposer's responsibility to combine the decryption shares to derive each transaction's symmetric key, and to compute the AEAD decryption of each encrypted transaction's payload.</p>
+<p>The decryption data for a tx is oneof (<code>encryption_private_key</code>, <code>list of decryption shares</code>). For a validly constructed transaction, the decryption shares can be combined to get the symmetric key. The combined share can then be included within the block, and every node can check its validity by correctness of the key-committing AEAD.</p>
+<p>If the tx was invalidly constructed, then all of the constituent decryption shares must get posted on-chain for verifyability.**</p>
+<p>Constructing a valid block proposal therefore executes 1 <code>TPKE.CombineDecryptionShares</code> operation per transaction per block signer in the previous block.</p>
+<p>Verifying the validity of a block proposal therefore executes 1 <code>TPKE.VerifyCombination</code> operation per block signer in the previous block. </p>
+<p>** There is an optimization where we only need one list of 'cross-tx combined' decryption shares, for all invalid txs per block.</p>
+<h2><a class="header" href="#block-finalization" id="block-finalization">Block finalization</a></h2>
+<p>In addition to the standard 2/3 weight requirements for block finalization, Ferveo adds an additional requirement: every validator signature on a block must include valid, signed decryption shares corresponsing to that validator, for every encrypted transaction committed to in that block, totaling at least 2/3 weight of decryption shares. </p>
+<p>Signing a block proposal therefore executes 1 <code>TPKE.CiphertextValidity </code> operation and 1 <code>TPKE.CreateDecryptionShare()</code> operation per transaction in that block proposal.</p>
+<p>Verifying the block proposal executes 1 <code>TPKE.CiphertextValidity </code> operation and 1 <code>TPKE.BatchVerifyDecryptionShares()</code> operation per transaction in that block proposal.</p>
+<p>This guarantees liveness will be similar: the network will not stop while waiting for decryption shares unless the network stops while waiting for signatures as well.</p>
+<h2><a class="header" href="#invalid-transactions" id="invalid-transactions">Invalid transactions</a></h2>
+<p>The primary issue in accepting the finality of a block is verification that the decryption of every transaction succeeded correctly. </p>
+<p>In the optimistic case, where all transactions are constructed exactly as required by the protocol, the block proposer can run <code>TPKE.CombineDecryptionShares()</code> to obtain the shared secret, and therefore the 256 bit symmetric key, for each transaction. Since all transactions are valid, this symmetric key successfully decrypts the transaction plaintext which matches the BLAKE2b hash. (Alternatively, a key-committing scheme could be used). Therefore, only one 32 byte symmetric key per transaction needs to be added to the block, to assist in block verification.</p>
+<p>Problems arise when an invalid transaction, where either the symmetric key or BLAKE2b hash, does not match the transaction payload. The protocol must verify that the transaction is actually invalid and that no validator submitted invalid decryption shares or failed to combine shares according to protocol. Otherwise, a malicious validator would be able to deny execution of specific transactions upon discovering its contents. </p>
+<p>To avoid a high cost incurrec (and DoS attack vector) of many invalid transactions, all invalid transactions are handled in an aggregated way. The decryption shares of all invalid transactions are aggregated using <code>TPKE.AggregateDecryptionShares</code>; the aggregated decryption shares, along with the result of <code>TPKE.CombineDecryptionShares</code>
+for each invalid transaction, is attached to the block instead of the 32 byte symmetric key. </p>
+<p>Therefore, full nodes can run the relatively inexpensive <code>TPKE.VerifyAggregatedCombination</code> to check the validity of the combined shares of each allegedly invalid transaction, and attempt symmetric decryption using each transaction's derived symmetric key. Upon the expected failure to decrypt an invalid transaction, that transaction is discarded instead of executed (consuming any fee) which mitigates the minor additional cost of invalidity verification. </p>
+<h3><a class="header" href="#correctness-of-decryption-shares" id="correctness-of-decryption-shares">Correctness of decryption shares</a></h3>
+<p>The validity of all decryption shares must be checked before accepting a block. </p>
+<p>In case <code>TPKE.BatchVerifyDecryptionShares</code> fails, indicating that some validator may have sent faulty decryption shares, a fallback protocol must be initiated to discover which validators sent valid decryption shares, by executing <code>TPKE.VerifyDecryptionShares</code> separately for each validator's decryption shares. </p>
+<p>This is significantly more expensive than <code>TPKE.BatchVerifyDecryptionShares</code>; however, since penalties can be enforced on validators for sending bad decryption shares, the optimistic verification <code>TPKE.BatchVerifyDecryptionShares</code> should succeed most of the time.</p>
+<h2><a class="header" href="#privacy" id="privacy">Privacy</a></h2>
+<p>Ferveo only provides additional privacy while pending <strong>within the mempool</strong>; once transactions are decrypted, all details of the payload become public. In addition, fee payment information reveals who the fee payer is (who may be a proxy).</p>
+<h2><a class="header" href="#invalid-transactions-1" id="invalid-transactions-1">Invalid transactions</a></h2>
+<p>In the case where the transaction creator does not follow the protocol, for example by having an invalid payload, a payload that does not match the hash, or using a bad nonce \(r\), the network does not make any guarantees regarding privacy or execution order (or execution at all) of an invalid transaction.</p>
+<h1><a class="header" href="#side-channel-analysis" id="side-channel-analysis">Side Channel Analysis</a></h1>
+<p>As Ferveo is an online protocol that depends on complex cryptographic primitives, this section will include an analysis of potential side channels where private dta and keys may be leaked.</p>
+<h1><a class="header" href="#threshold-signature-scheme" id="threshold-signature-scheme">Threshold Signature Scheme</a></h1>
+<p>A Schnorr-like signature scheme based on Gap Diffie-Hellman in ROM.</p>
+<h2><a class="header" href="#setup" id="setup">Setup</a></h2>
+<ul>
+<li>Let \(G\) be a generator of (\mathbb{G}_1\) and let \(H\) be a generator of \(\mathbb{G}_2\)</li>
+<li>Let \(Y = [x] G\) be the public key and \(Y_i = [x_i] G\) be the public key of the \(i\)th share</li>
+<li>Let \(Z = [x] H\) be the private key, and \(Z_i = [x_i] H\) be the private key of the \(i\)th share</li>
+</ul>
+<h2><a class="header" href="#notation-1" id="notation-1">Notation</a></h2>
+<ul>
+<li>Let \(H_\ell\) denote hash to \({0,1}^{\ell}\) for some integer \(\ell\)</li>
+<li>Let \(H_\mathbb{F}\) denote hash to scalar field \(\mathbb{F}\)</li>
+<li>Let \(H_\mathbb{G}\) denote hash to group \(\mathbb{G}\)</li>
+</ul>
+<h3><a class="header" href="#to-sign-with-group-element-as-private-key" id="to-sign-with-group-element-as-private-key">To sign with group element as private key</a></h3>
+<p>Let \(m\) be the message to sign. </p>
+<ol>
+<li>Let \(k\) be a random scalar</li>
+<li>Let \(R = e([k] G, H)\)</li>
+<li>Let \(c = H_\mathbb{F}(R || Y || m)\)</li>
+<li>Let \(z = [k] H + [c] Z\)</li>
+<li>Let the signature be \(\sigma = (R,z)\)</li>
+</ol>
+<p>Note that \(z = [k+xc] H\), but is computable without knowledge of \(x\).</p>
+<h3><a class="header" href="#to-verify" id="to-verify">To verify</a></h3>
+<ol>
+<li>Let \(\sigma = (R,z)\) be the signature of \(m\)</li>
+<li>Let \(c = H_\mathbb{F}( R || Y || m)\)</li>
+<li>Let \(R' = e( G, z)*e([c]Y, H)^{-1}\)</li>
+<li>If \(R = R'\) the signature is valid.</li>
+</ol>
+<h3><a class="header" href="#threshold-signature" id="threshold-signature">Threshold Signature</a></h3>
+<p>The technique of <a href="https://eprint.iacr.org/2020/852.pdf">FROST</a> can be applied here;
+the individual commitments \(R_i\) are computed similar to FROST as:</p>
+<p>\(R_i = e(D + [\rho_i] E_i, H)\)</p>
+<p>and</p>
+<p>\(R = \prod R_i\)</p>
+<p>and the value \(z = [d_i + e_i \rho_i]H + [\lambda_i s_i c] Z\)</p>
+<h1><a class="header" href="#key-refresh" id="key-refresh">Key Refresh</a></h1>
+<p>It is possible to refresh a key (also called proactive secret sharing) to change all the issued key shares without changing the actual public key.</p>
+<p>The primary purpose is to limit vulnerability windows for key shares to leak or compromise. Instead of compromising sufficient key shares of the distributed key, an attacker must compromise those key shares within the refresh window. The secondary purpose may be to invalidate and/or issue new key shares of the same key to adjust for dynamic weights (e.g. change in stake) without changing the public key.</p>
+<p>This is accomplished by running the DKG again, except the VSS instances all share the secret 0, and an opening of each $R$ polynomial at 0 is revealed. When the DKG succeeds the new shares of secret 0 are added to the old shares.</p>
+<h1><a class="header" href="#secure-enclave-computation" id="secure-enclave-computation">Secure enclave computation</a></h1>
+<p>The hardware-based security enclaves built into certain CPUs, such as Intel SGX, can both positively and negatively affect the security model.</p>
+<p>Since the VSS, DKG, and threshold operations include storage and computation on secret data that should not be publicly revealed, a node may run these sensitive computations inside of a secure enclave as a layer of protection against attack by an external adversary. Since HSM support for VSS, DKG, and threshold operations is unlikely, use of a secure enclave may be useful.</p>
+<p>Alternatively, secure enclaves can undermine the dispute process by facilitating silent collusion among adversarial or honest-but-curious participants. Since dispute procedures rely on incentivizing nodes (even adversarial or dishonest ones) to report dishonest behavior, a dispute process can only work if evidence of dishonest behavior is available; however, if collusion occurs entirely within a secure enclave or a cryptographic multiparty computation, then such evidence may not be revealed.</p>
+<p>At this time, it does not appear practical to implement a DKG whose security model depends on the underlying security of a secure hardware enclave.</p>
+<h1><a class="header" href="#alternative-schemes" id="alternative-schemes">Alternative Schemes</a></h1>
+<p>Several alternative DKG and threshold operation protocols are implemented in Ferveo for comparison and benchmarking purposes. The major alternative schemes are:</p>
+<ul>
+<li>A Pedersen DKG using a Feldman VSS. A traditional DKG scheme, this can be implemented either over a bilinear group, or a non-pairing friendly elliptic curve such as Pallas. Performance is excellent, but communication complexity can be high, and liveness guarantees are complicated by the need for a complaint/dispute round to prevent malicious VSS instances.</li>
+<li>A scalable DKG based on fast KZG commitments. KZG commitments can make VSS verification faster and communication complexity is smaller, at the cost of a slightly more complex protocol and the same complaint/dispute round is necessary.</li>
+</ul>
+<p>For completeness, these DKG and VSS schemes are documented in this Appendix.</p>
+<h1><a class="header" href="#pedersen-dkg" id="pedersen-dkg">Pedersen DKG</a></h1>
+<h1><a class="header" href="#fast-kzg-dkg" id="fast-kzg-dkg">Fast KZG DKG</a></h1>
+<p>The Verifiable Secret Sharing scheme using Fast KZG commitments is a modified version of the ETHDKG scheme (https://eprint.iacr.org/2021/118.pdf) and the DKG from (https://people.csail.mit.edu/devadas/pubs/scalable_thresh.pdf), with performance enhancements and weighted shares. All polynomial evaluations are at powers of \(\omega\) to allow FFT based polynomial operations.</p>
+<h3><a class="header" href="#kzg-commitment-scheme" id="kzg-commitment-scheme">KZG commitment scheme</a></h3>
+<p>Batched fast KZG opening proofs contribute to scalability. Fast KZG openings are based off of the following:</p>
+<ul>
+<li>https://github.com/khovratovich/Kate/blob/66aae66cd4e99db3182025c27f02e147dfa0c034/Kate_amortized.pdf</li>
+<li>https://alinush.github.io/2020/03/12/towards-scalable-vss-and-dkg.html</li>
+</ul>
+<p>The Feist and Khovratovich batch KZG opening allows for simultaneous fast computation of \(2^n\) opening proofs of a single polynomial at \(2^n\) roots of unity, which motivates the choice of evaluation points. </p>
+<p>Additionally, nearly linear time fast polynomial evaluation and fast polynomial interpolation algorithms allow the dealer to combine all openings belonging to a participant into a single \(\mathbb{G}_1\) element, and allow the recipient to fast verify the opening proof.</p>
+<h3><a class="header" href="#dealer-messages" id="dealer-messages">Dealer messages</a></h3>
+<ol>
+<li>The dealer \(d\) chooses a uniformly random polynomial \(S\) of degree \(p\).</li>
+<li>KZG commit to \(S\) to obtain \(\hat{S}\)</li>
+<li>KZG commit to \(S(0)\) to obtain \([S(0)] G_1\)</li>
+<li>Create an opening proof \(\pi_0\) of commitment \(\hat{S} - [S(0)] G_1\) opening to \(0\) at \(0\).</li>
+<li>For all \(i \in [1,n]\):
+<ul>
+<li>create an opening proof \(\pi_i\) of commitment \(\hat{S}\) at all points \(\alpha \in \Omega_i\).</li>
+<li>compute \(\hat{T_i} = \hat{R} - \hat{S}_i\) where \(T_i = R - S_i\)</li>
+</ul>
+</li>
+</ol>
+<p>The dealer signs and posts \((\tau,d,\hat{S}, [S(0)] G_1, \pi_0)\) to the blockchain.</p>
+<p>For each node \(i\), the dealer encrypts (with MAC) to \(pk_i\) the message \((\tau, d, \langle S(\alpha) \mid \alpha \in \Omega_i \rangle, \pi_i)\) which consists of:</p>
+<ul>
+<li>\(\tau\), the round number</li>
+<li>\(d\), the dealer id</li>
+<li>\(\hat{S}\), the KZG commitment to the share polynomial</li>
+<li>\(\langle S(\alpha) \mid \alpha \in \Omega_i\rangle\), the share evaluations belonging to node \(i\).</li>
+<li>\(\pi_{i}\), the opening proof of \(\hat{S}\) at \(\Omega_i\)</li>
+</ul>
+<p>For all \(i \in [1,n]\) the dealer posts the \(i\)th message to the blockchain.</p>
+<p>The cost of each plaintext is \(2\) integers, ?? \(\mathbb{F}_r\) elements and \(2\) \(\mathbb{G}_1\) elements. (TODO)</p>
+<h4><a class="header" href="#offline-precompute" id="offline-precompute">Offline precompute</a></h4>
+<p>Much of the dealer's computation can be done offline/precomputed, potentially saving online computation time. The secret polynomial, commitment, and opening proofs can be speculatively computed, subject to maintaining secrecy of the secret data.</p>
+<h3><a class="header" href="#receiving-dealer-message" id="receiving-dealer-message">Receiving dealer message</a></h3>
+<p>Node \(i\) recieves, decrypts, and authenticates \((\tau,d,\hat{S}, \pi_0)\) and \((\tau, d, \hat{S},  \langle s_{\alpha} \rangle, \pi)\) from dealer \(d\) through the blockchain.</p>
+<ol>
+<li>Check that commitment \(\hat{S}\) and proof \(\pi\) open to \(\langle s_{\alpha} \rangle\)</li>
+<li>Check that commitment \(\hat{S} - [S(0)] G_1\) and proof \(\pi_0\) opens to \(0\) at \(0\).</li>
+<li>If the decryption or opening check fails, then initiate pre-success or post-success dispute process</li>
+<li>Else, the VSS has succeeded for node \(i\). Sign and post the ready message \((\tau, d, \hat{S})\).</li>
+</ol>
+<h3><a class="header" href="#pre-success-dispute" id="pre-success-dispute">Pre-success dispute</a></h3>
+<p>In the case where the dealer \(d\) posts an invalid distribution of shares, a node can initiate the pre-dispute process as long as no DKG has finalized using that VSS. A node \(i\) signs and posts a message \((\text{dispute}, \tau, d, k, \pi)\) where \(k\) is the shared ephemeral secret key used to encrypt the message from \(d\) to \(i\) and \(\pi\) is the NIZK proof that it is the ephemeral key. The remaining nodes adjucate the dispute in favor of the dealer or complainer. In case the dealer is found to be faulty, that dealer's VSS is terminated. Additionally, penalties and rewards may be allocated.</p>
+<h3><a class="header" href="#vss-finalization" id="vss-finalization">VSS finalization</a></h3>
+<p>To ensure the DKG results in an unbiased key, a new debiasing base \(H_1 = \operatorname{HTC}(\text{DKG session} \tau)\) is used for every generated public key.</p>
+<p>Once sufficient weight of signatures are posted, the dealer \(d\) posts the public share \([S(0)] H_1\) along with a NIZK proof that \([S(0)] G_1\) and \([S(0)] H_1\) share the same discrete log.</p>
+<p>Once these are posted and verified, the VSS initiated by dealer \(d\) in round \(\tau\) with commitment \(\hat{S}\) is considered succeeded.</p>
+<p>The remaining slow \(t+f\) weight nodes can complete the VSS from information on the blockchain. In case those shares are invalid, the slow nodes can initiate the post-success dispute procedure.</p>
+<p>If the dealer fails to finalize its VSS session after a timeout period, then a new set of VSS instances of sufficient weight are initiated.</p>
+<h3><a class="header" href="#post-success-finalization" id="post-success-finalization">Post-success finalization</a></h3>
+<p>A slow node may discover the dealer has distributed invalid shares after the relevant DKG has already been finalized, or alternatively been unable to post a dispute beforehand. The difficulty is that removing the troublesome VSS instance may change an actively used distributed key, but leaving the VSS instance in place reduces the resiliance of the network. Furthermore, the dispute process might publicly reveal valid shares of the VSS (for example, if a node receives some but not all valid shares from the dealer).</p>
+<p>Penalties and rewards can still be allocated for disputes posted after the validity of the distributed key expires, but this process also must happen in a defined window of time between the expiry of the key and the release of staked value for the DKG session.</p>
+<h3><a class="header" href="#proof-sketch-2" id="proof-sketch-2">Proof sketch</a></h3>
+<h2><a class="header" href="#dkg" id="dkg">DKG</a></h2>
+<p>The DKG will consist of some number of nodes dealing VSS instances until consensus is reached that enough VSS instances have completed to recover a distributed key. The final shares of the distributed key are equal to the pointwise sum of the shares of each VSS instance.</p>
+<h3><a class="header" href="#optimistic-phase" id="optimistic-phase">Optimistic phase</a></h3>
+<p>The ideal scenario is that the fewest possible number of VSS instances are used, and everyone computationally prioritizes the same instances (so there are fewer VSS instances that consume computation time and are left unused)</p>
+<p>Since we need at least dealer total weight \(p+1\) of VSS instances to finish, the dealer identities can be sorted by their weight such that the \(\ell\) highest weighted dealers sum to total weight at least \(p+1\) and \(\ell\) is minimized.</p>
+<p>In the optimistic phase, if there are no faults that prevent these \(\ell\) VSS instances from being finalized, and no disputes against those dealers, then these VSS instances are used in the DKG. This can be confirmed by \(W-t-f\) weight signing a message indicating the optimistic phase succeeded along with the resulting public key. Since BLS signature aggregation can be used, this consumes \(O(\log m)\) on-chain storage.</p>
+<h3><a class="header" href="#pessimistic-phase" id="pessimistic-phase">Pessimistic phase</a></h3>
+<p>Assume the optimistic phase does not succeed before a timeout period expires. Then the DKG enters the pessimistic phase where an arbitrary set of VSS instances of total weight at least \(t\) can be used for DKG. The nodes should initiate additional VSS instances in order of decreasing weight of dealers to again minimize the total number of VSS instances that need to be dealt, and also to minimize the number of VSS instances a node spends computation to verify but remain unused. Every time a timeout period expires, more nodes should begin dealing VSS instances.</p>
+<p>In the pessimistic phase, as soon as \(W-t-f\) weight of VSS instances finalize (as determined by ready signatures with no disputes and dealer finalization), then the first sufficient subset of finalized VSS instances is used for the DKG, as determined by the order that the finalization messages are posted.</p>
+<h3><a class="header" href="#debiasing-the-final-key" id="debiasing-the-final-key">Debiasing the final key</a></h3>
+<p>The approach of Neji et al can be used to debias the final key. The public key \([s] H_1\) is the sum of all finalization values \([S(0)] H_1\) for all successful VSS instances, and the shared secret key is sharewise sum of all VSS shares.  </p>
+<h1><a class="header" href="#threshold-encryption" id="threshold-encryption">Threshold Encryption</a></h1>
+<h2><a class="header" href="#curve-specification" id="curve-specification">Curve specification</a></h2>
+<p>Let \(P_1, P_2\) be the generators of \(G_1, G_2\) respectively.</p>
+<p>Let \(H\) be a hash function from \({0,1}^* \to G_2\).</p>
+<p>Let \(G\) be a PRF from \(G_1 \to {0,1}^*\)</p>
+<p>In the protocol, \(U\) is on \(G_1\), pubkeys \(Y\) are on \(G_1\), and \(W\) is on \(G_2\).</p>
+<h2><a class="header" href="#encrypt" id="encrypt">Encrypt</a></h2>
+<p>\(Enc(m, AD):\)</p>
+<ol>
+<li>Let \(r\) be a random scalar</li>
+<li>Let ((U = rP_1\)</li>
+<li>Let \(V = G(rY) \oplus m\)</li>
+<li>Let \(W = rH(U, V, AD)))</li>
+</ol>
+<p>The public key portion of the ciphertext is (((U, W)\) and \(V\) is the ciphertext.</p>
+<h2><a class="header" href="#calculate-decryption-share" id="calculate-decryption-share">Calculate Decryption Share</a></h2>
+<p>\(Dec(U, V, W, AD, x_i):\)</p>
+<ol>
+<li>Let \(H = H(U,V, AD)\)</li>
+<li>Check that \(e(P_1, W) = e(U, H)\)</li>
+</ol>
+<p>If the above check passes, the decryption share is \(U_i = x_i U\).</p>
+<h2><a class="header" href="#decryption-share-validation" id="decryption-share-validation">Decryption share validation</a></h2>
+<p>\(Verify_Dec(C, AD, U_i, Y_i):\)</p>
+<ol>
+<li>Parse C as \((U, V, W)\)</li>
+<li>Compute \(H = H(U,V,AD)\)</li>
+<li>Check that \(e(P_1, W) = e(U, H)\)</li>
+<li>If the above check passes, check \(e(U_i, H) = e(Y_i, W)\)</li>
+</ol>
+<h2><a class="header" href="#decryption-share-aggregation-1" id="decryption-share-aggregation-1">Decryption share aggregation</a></h2>
+<p>Given \(t\) evaluations of \((i, f(i + 1) P_1)\), for a polynomial \(f\) of degree less than \(t\), we can compute \(f(0) P_1\) via lagrange interpolation.</p>
+<p>Since we are given many evaluations of \(U_i = f(i + 1) U = x_i r P_1\), we can use lagrange interpolation to obtain \(x r P_1 = rY\). </p>
+<p>Then we get our decrypted message as \(decrypt(G(rY), V)\).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

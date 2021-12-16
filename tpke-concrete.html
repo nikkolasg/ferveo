@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Complete Concrete Scheme - Ferveo</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prefix.html">Introduction</a></li><li class="chapter-item expanded "><a href="overview.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item expanded "><a href="preliminaries.html"><strong aria-hidden="true">2.</strong> Preliminaries</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="assumptions.html"><strong aria-hidden="true">2.1.</strong> System model and assumptions</a></li><li class="chapter-item expanded "><a href="primitives.html"><strong aria-hidden="true">2.2.</strong> Cryptographic Primitives</a></li></ol></li><li class="chapter-item expanded "><a href="dkg.html"><strong aria-hidden="true">3.</strong> Publicly Verifiable Distributed Key Generation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dkginit.html"><strong aria-hidden="true">3.1.</strong> Initialization</a></li><li class="chapter-item expanded "><a href="pvss.html"><strong aria-hidden="true">3.2.</strong> Publicly Verifiable Secret Sharing</a></li></ol></li><li class="chapter-item expanded "><a href="tpke.html"><strong aria-hidden="true">4.</strong> Threshold Encryption Scheme</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="lagrange.html"><strong aria-hidden="true">4.1.</strong> Lagrange Interpolation</a></li><li class="chapter-item expanded "><a href="aggregation.html"><strong aria-hidden="true">4.2.</strong> Decryption Share Aggregation</a></li><li class="chapter-item expanded "><a href="tpke-concrete.html" class="active"><strong aria-hidden="true">4.3.</strong> Complete Concrete Scheme</a></li><li class="chapter-item expanded "><a href="performance.html"><strong aria-hidden="true">4.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="tx.html"><strong aria-hidden="true">5.</strong> Encrypted Transactions</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="sca.html"><strong aria-hidden="true">6.</strong> Side Channel Analysis</a></li><li class="chapter-item expanded "><a href="tss.html"><strong aria-hidden="true">7.</strong> Threshold Signature Scheme</a></li><li class="chapter-item expanded "><a href="keyrefresh.html"><strong aria-hidden="true">8.</strong> Key Refresh</a></li><li class="chapter-item expanded "><a href="enclave.html"><strong aria-hidden="true">9.</strong> Secure enclave computation</a></li><li class="chapter-item expanded "><a href="alternative.html"><strong aria-hidden="true">10.</strong> Alternative Schemes</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pedersen.html"><strong aria-hidden="true">10.1.</strong> Pedersen DKG</a></li><li class="chapter-item expanded "><a href="fastkzg.html"><strong aria-hidden="true">10.2.</strong> Fast KZG DKG</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="tpke-kzg-dkg.html"><strong aria-hidden="true">10.2.1.</strong> Threshold Encryption</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ferveo</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#complete-concrete-scheme" id="complete-concrete-scheme">Complete Concrete Scheme</a></h1>
+<p>There are optimizations that can be done to increase decryption throughput when decrypting many transactions within a block. For completeness, the full concrete scheme is described here.</p>
+<h2><a class="header" href="#summary" id="summary">Summary</a></h2>
+<p>The DKG and TPKE schemes support the following key operations:</p>
+<ul>
+<li><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></li>
+<li><code>DKG.PartitionDomain({ek_i, s_i}) -&gt; {(ek_i, Omega_i)} </code></li>
+<li><code>DKG.GeneratePVSS(tau, total_weight, {(s_i, ek_i)})</code></li>
+<li><code>DKG.VerifyPVSS(tau, PVSS) -&gt; bool</code></li>
+<li><code>DKG.AggregatePVSS({PVSS_i}) -&gt; PVSS</code></li>
+<li><code>DKG.VerifyAggregatedPVSS({PVSS_i}, PVSS) -&gt; bool</code></li>
+</ul>
+<p>And supports the following ciphertext operations:</p>
+<ul>
+<li><code>TPKE.Encrypt(Y, aad)</code> inputs a public threshold key \(Y\) and outputs a random ciphertext \((U,W)\) encrypted to that public key</li>
+<li><code>TPKE.CiphertextValidity(U,W)</code> tests if $\((U,W)\) is a valid ciphertext</li>
+<li><code>TPKE.CreateDecryptionShare(dk_j, U_i,W_i) -&gt; D_{i,j}</code></li>
+<li><code>TPKE.VerifyDecryptionShares(ek_i, { U_j }, { D_{i,j} }) -&gt; bool</code></li>
+<li><code>TPKE.BatchVerifyDecryptionShares({ek_i}, { U_j }, { D_{i,j} }) -&gt; bool</code></li>
+<li><code>TPKE.CombineDecryptionShares( {U_j}, {D_{i,j}) -&gt; {S_j}</code> combines decryption shares </li>
+<li><code>TPKE.VerifyCombination</code> verifies a combination for many </li>
+<li><code>TPKE.DeriveSymmetricKey(S_j) -&gt; k_j</code></li>
+</ul>
+<h2><a class="header" href="#dkggenerateepochkeypair---ek-dk" id="dkggenerateepochkeypair---ek-dk"><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></a></h2>
+<p>Choose a uniformly random scalar \(dk \in \mathbb{F}_r \) and compute \( ek = [dk] H \)</p>
+<h2><a class="header" href="#dkgpartitiondomainek_i-s_i---ek_i-omega_i" id="dkgpartitiondomainek_i-s_i---ek_i-omega_i"><code>DKG.PartitionDomain({ek_i, s_i}) -&gt; {(ek_i, Omega_i)}</code></a></h2>
+<h2><a class="header" href="#dkggeneratepvsstau-total_weight-ek_i-omega_i---pvss" id="dkggeneratepvsstau-total_weight-ek_i-omega_i---pvss"><code>DKG.GeneratePVSS(tau, total_weight, {(ek_i, Omega_i)}) -&gt; PVSS</code></a></h2>
+<ol>
+<li>Choose a uniformly random polynomial \(f(x) = \sum^p_i a_i x^i \) of degree \(t\).</li>
+<li>Let \(F_0, \ldots, F_t \leftarrow = [a_0] G, \ldots, [a_t] G \)</li>
+<li>For each validator \(i\), for each \(\omega_j \in \Omega_i\), encrypt the evaluation \( Z_{i, \omega_j} \leftarrow [f(\omega_j)] ek_i  \)</li>
+<li>\(\sigma = [a_0] H_{\mathbb{G}_2}(tau,F_0) \)</li>
+</ol>
+<p>Output PVSS = \( ((F_0, sigma), (F_1, ldots, F_t), {Z_{i,\omega_j}}) \)</p>
+<h2><a class="header" href="#dkgverifypvsstau-pvss---bool" id="dkgverifypvsstau-pvss---bool"><code>DKG.VerifyPVSS(tau, PVSS) -&gt; bool</code></a></h2>
+<ol start="0">
+<li>Decode \( ((F_0, sigma), (F_1, ldots, F_t), {Z_{i,\omega_j}}) \leftarrow \) PVSS</li>
+<li>Compute by FFT \(A_1, \ldots, A_W \leftarrow \operatorname{FFT}(F_0, \ldots, F_t) \)</li>
+<li>Compute \(W\) random scalars \(\alpha_i \)</li>
+<li>Check \(\mathcal{O} = \prod_i e(-G_1, Z_{i,\omega_j})e(A_{i,\omega_j}, ek_i) \)</li>
+</ol>
+<h2><a class="header" href="#dkgaggregatepvsspvss_i---pvss" id="dkgaggregatepvsspvss_i---pvss"><code>DKG.AggregatePVSS({PVSS_i}) -&gt; PVSS</code></a></h2>
+<h2><a class="header" href="#dkgverifyaggregatedpvsspvss_i-pvss---bool" id="dkgverifyaggregatedpvsspvss_i-pvss---bool"><code>DKG.VerifyAggregatedPVSS({PVSS_i}, PVSS) -&gt; bool</code></a></h2>
+<h2><a class="header" href="#lagrange-coefficients" id="lagrange-coefficients">Lagrange Coefficients</a></h2>
+<p>Given a validator subset \({i}\), the Lagrange coefficients \(\lambda_{\omega}(0)\) for the domain \(\cup \Omega_i \) can be computed efficiently using the Subproduct Domain technique.</p>
+<p>Total cost: \( O(p \log p) \) </p>
+<h2><a class="header" href="#dkggenerateepochkeypair---ek-dk-1" id="dkggenerateepochkeypair---ek-dk-1"><code>DKG.GenerateEpochKeypair() -&gt; (ek, dk)</code></a></h2>
+<p>The validator generates a random scalar \(dk \in \mathbb{F}_r \) and computes the public key \( ek = [dk] H \)</p>
+<h2><a class="header" href="#tpkeencrypty-aad---uw" id="tpkeencrypty-aad---uw"><code>TPKE.Encrypt(Y, aad) -&gt; (U,W)</code></a></h2>
+<p><code>TPKE.Encrypt(Y, aad)</code> creates a new, random ciphertext \((U,W)\) encrypted to the public key \(Y\), and a corresponding ephemeral shared secret \(S\) such that the private key associated with \(Y\) can efficiently compute \(S\) from the ciphertext \((U,W)\). Additional authenticated data <code>aad</code> may be attached to the ciphertext.</p>
+<p>The ephemeral shared secret \(S\) can be used to derive a shared symmetric encryption key.</p>
+<ol>
+<li>Let \(r\) be a uniformly random scalar.</li>
+<li>Let \(S = e([r] Y, H)\)</li>
+<li>Let \(U = [r] G\)</li>
+<li>Let \(W = [r] H_{\mathbb{G}_2} (U, aad)\)</li>
+</ol>
+<p>Then \((U,W)\) is the ciphertext and \(S\) is the ephemeral shared secret. </p>
+<h2><a class="header" href="#tpkeciphertextvalidityuw---bool" id="tpkeciphertextvalidityuw---bool"><code>TPKE.CiphertextValidity(U,W) -&gt; bool</code></a></h2>
+<p>To provide chosen ciphertext security, ciphertext validity must be checked for each ciphertext \((U,W)\) separately. The ciphertext can be checked by:</p>
+<p>\[e(U, H_{\mathbb{G}_2} (U)) = e(G, W)\]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) and 1 \(\mathbb{G}_2\) deserialize per ciphertext</li>
+<li>1 product of pairings</li>
+</ul>
+<h2><a class="header" href="#tpkebatchciphertextvalidity-uw----bool" id="tpkebatchciphertextvalidity-uw----bool"><code>TPKE.BatchCiphertextValidity( {U,W} ) -&gt; bool</code></a></h2>
+<p>Once a block proposer has verified ciphertext validity, the entire block can be optimistically verified:</p>
+<p>\[\prod_j e(\alpha_j U_j, H_{\mathbb{G}_2} (U_j)) = e(G, \sum_j \alpha_j W_j) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) and 1 \(\mathbb{G}_2\) deserialize per ciphertext</li>
+<li>1 product of pairings</li>
+</ul>
+<h2><a class="header" href="#tpkecreatedecryptionsharedk_i-u_j---d_ij" id="tpkecreatedecryptionsharedk_i-u_j---d_ij"><code>TPKE.CreateDecryptionShare(dk_i, U_j) -&gt; D_{i,j}</code></a></h2>
+<p>\[D_{i,j} = [dk_i^{-1}] U_j\]</p>
+<h2><a class="header" href="#tpkeverifydecryptionsharesek_i--u_j---d_ij----bool" id="tpkeverifydecryptionsharesek_i--u_j---d_ij----bool"><code>TPKE.VerifyDecryptionShares(ek_i, { U_j }, { D_{i,j} }) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input potential decryption shares for each ciphertext \({D_{i,j}}\) from a single validator \(i\) with epoch public key \(ek_i\), the validity of those shares can be checked by:</p>
+<p>\[D_{i,j} = [dk_i^{-1}] U_j\]</p>
+<p>\[ e(\sum_j [\alpha_j] D_{i,j}, ek_i) = e(\sum_j [\alpha_j] U_j, H) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 \(\mathbb{G}_1\) deserialize per validator per ciphertext</li>
+<li>2 pairings per validator</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_2\) multiply per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkebatchverifydecryptionsharesek_i--u_j---d_ij----bool" id="tpkebatchverifydecryptionsharesek_i--u_j---d_ij----bool"><code>TPKE.BatchVerifyDecryptionShares({ek_i}, { U_j }, { D_{i,j} }) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input 2/3 weight of potential decryption shares for each ciphertext \({D_{i,j}}\), corresponding to validator set \({i}\) with epoch public keys \(ek_i\), the validity of those shares can be checked:</p>
+<p>\[ \prod_i e(\sum_{j} [\alpha_{i,j}] D_{i,j}, ek_i) = e([\sum_{i,j} \alpha_{i,j}] U_j, H) \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 G1 deserialize per validator</li>
+<li>V+1 pairings</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_2\) multiply, per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkeaggregatedecryptionshares-u_j-d_ij----hatd_i" id="tpkeaggregatedecryptionshares-u_j-d_ij----hatd_i"><code>TPKE.AggregateDecryptionShares( {U_j}, {D_{i,j}} ) -&gt; {\hat{D}_i} </code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\), on input 2/3 weight of potential decryption shares for each ciphertext \({D_{i,j}}\) sharing the same validator set, if decryption shares are only needed to check the validity of the decryption process, the decryption shares of many ciphertexts can be aggregated into one decryption share set. </p>
+<p>For each ciphertext \(j\) compute the scalar coefficient:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>which can be used to compute the aggregated decryption share for validator \(i\):</p>
+<p>\[\hat{D}<em>i = \sum_j \rho_j D</em>{i,j} \]</p>
+<h2><a class="header" href="#tpkeverifyaggregateddecryptionsharesu_j-hatd_i---bool" id="tpkeverifyaggregateddecryptionsharesu_j-hatd_i---bool"><code>TPKE.VerifyAggregatedDecryptionShares({U_j}, {\hat{D}_i}) -&gt; bool</code></a></h2>
+<p>Given many valid ciphertexts \((U_j,W_j)\) and an aggregated decryption share set for those ciphertexts, the validity of the aggregation can be checked by computing the publicly known coefficients:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>and checking the pairing equation:</p>
+<p>\[ \prod_i e(\sum_{j} [\rho_i] \hat{D}<em>{i}, P_i) = e([\sum</em>{i,j} \rho_i] U_j, H) \]</p>
+<h2><a class="header" href="#tpkecombinedecryptionshares-u_j-d_ij---s_j" id="tpkecombinedecryptionshares-u_j-d_ij---s_j"><code>TPKE.CombineDecryptionShares( {U_j}, {D_{i,j}) -&gt; {S_j}</code></a></h2>
+<p>For a given ciphertext \((U_j,W_j)\), on input 2/3 weight of valid decryption shares \({D_{i,j}}\) as checked by ``TPKE.VerifyDecryptionShares`, corresponding to validator set \({i}\).</p>
+<p>Then a partial combined share \(S_{i,j}\) for that ciphertext can be computed with one pairing:</p>
+<p>\[ S_{i,j} = e( D_{i,j}, [\sum_{\omega_j \in \Omega_i} \lambda_{\omega_j}(0)] Z_{i,\omega_j}  ) \]</p>
+<p>and combined to get the final combined share \(S_j = \prod_i S_{i,j}\).</p>
+<p>Total cost: </p>
+<ul>
+<li>1 pairing and 1 \(\mathbb{G}_T\) multiply per validator </li>
+</ul>
+<h2><a class="header" href="#tpkeverifyaggregatedcombination" id="tpkeverifyaggregatedcombination"><code>TPKE.VerifyAggregatedCombination</code></a></h2>
+<p>Verifying \(\prod_j S_j\) for many ciphertexts with the same decrypting validator set can be done faster than generating each \(S_j\) separately. For ciphertexts \((U_j, W_j)\) with valid aggregated decryption shares \( \hat{D}_{i}\) (checked by <code>TPKE.VerifyAggregatedDecryptionShares</code>), combined shares \({S_j}\) and random scalars \(\rho_j\), for each validator \(i\), an aggregated decryption share: </p>
+<p>\[\hat{D}<em>i = \sum_j \rho_j D</em>{i,j} \]</p>
+<p>computed using unknown \(D_{i,j}\) but with the publicly known coefficients:</p>
+<p>\[ \rho_j = H(U_1, \ldots, U_k, j) \]</p>
+<p>can be used to compute an aggregated partial combined share \(\hat{S}_i \):</p>
+<p>\[ \hat{S}<em>i = e( \hat{D}<em>i, [\sum</em>{\omega_j \in \Omega_i} \lambda</em>{\omega_j}(0)] Z_{i,\omega_j}  ) \]</p>
+<p>and combined to get an aggregated final combined share \( \hat{S} = \prod_i \hat{S}_i\) which can be checked against the computed \({S_j}\) by: </p>
+<p>\[ \hat{S} = \sum_j \alpha_j S_j \]</p>
+<p>Total cost:</p>
+<ul>
+<li>1 pairing and 1 \(\mathbb{G}_T\) multiply per validator</li>
+<li>1 \(\mathbb{G}_1\) multiply and 1 \(\mathbb{G}_T\) multiply per ciphertext.</li>
+</ul>
+<h2><a class="header" href="#tpkederivesymmetrickeys_j---k_j" id="tpkederivesymmetrickeys_j---k_j"><code>TPKE.DeriveSymmetricKey(S_j) -&gt; k_j</code></a></h2>
+<p>Use HKDF(S_j)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="aggregation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="performance.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="aggregation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="performance.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
